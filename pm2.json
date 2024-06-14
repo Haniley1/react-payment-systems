@@ -1,0 +1,10 @@
+{
+    "apps" : [
+      {
+        "name": "deva-crm",
+        "script": "node_modules/react-scripts/scripts/start.js",
+        "out_file": "/dev/null",
+        "error_file": "/dev/null"
+      }
+    ]
+  }

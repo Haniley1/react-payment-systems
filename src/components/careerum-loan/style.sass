@@ -1,0 +1,599 @@
+$tablet: 1299px
+$mobile: 767px
+
+@mixin flex()
+    display: flex
+    justify-content: flex-start
+    align-items: flex-start
+
+@mixin flex-center()
+    display: flex
+    justify-content: center
+    align-items: center
+
+@mixin flex-wrap()
+    display: flex
+    justify-content: flex-start
+    align-items: flex-start
+    flex-wrap: wrap
+    
+@mixin flex-column()
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start 
+
+@mixin flex-column-reverse()
+    display: flex
+    flex-direction: column-reverse
+    justify-content: flex-start
+    align-items: flex-start 
+
+* 
+    font-family: Montserrat
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+*::-webkit-scrollbar 
+    width: 0
+    height: 0
+
+.pay-share
+    background-color: #ffffff
+    width: 100%
+    overflow: hidden
+
+.loan-container
+    // width: 1160px
+    // margin: 24px auto 50px
+    margin-top: 24px
+    margin-bottom: 96px
+
+    * 
+        font-family: "Montserrat"
+
+    & > div 
+        margin-left: 140px
+
+.container-2col
+    @include flex
+
+.button-back 
+    @include flex()
+    
+    a
+        color: #000
+        font-size: 14px
+        font-style: normal
+        font-weight: 600
+        line-height: 120%
+        text-decoration: none
+        margin-left: 1px
+        transition: opacity 0.3s ease
+        opacity: 0.48
+
+        svg 
+            margin-right: 5px
+
+        &:hover
+            color: #000
+            opacity: 1
+
+.pay-share-header
+    margin-top: 40px
+
+    .tariff-description
+        color: #0000007a
+        font-size: 18px
+        font-style: normal
+        font-weight: 600
+        line-height: 120%
+        
+        p
+            display: inline-block
+
+            &:first-child
+                margin-right: .5rem
+
+            &:last-child
+                margin-right: 10px
+
+    .header 
+        color: #000
+        font-size: 32px
+        font-style: normal
+        font-weight: 600
+        line-height: 130%
+        margin-right: 10px
+
+.pay-share-description
+    @include flex
+
+    margin-top: 64px
+
+    .description__left
+        width: 196px
+
+        .description__header
+            color: #000
+            font-size: 20px
+            font-style: normal
+            font-weight: 600
+            line-height: 130%
+            margin-top: 8px
+
+        .description__subheader, a
+            color: #000
+            font-size: 11px
+            font-style: normal
+            font-weight: 500
+            line-height: 150%
+            letter-spacing: -0.11px
+            margin-top: 24px
+            transition: color 0.3s ease
+
+            a
+                text-decoration: underline
+
+            a:hover
+                color: #827F7C
+
+    .description__items
+        @include flex
+
+    .description__item
+        border-radius: 16px
+        background: #FAF5EE
+        background: linear-gradient(160deg, rgba(250,245,238,1) 0%, rgba(250,245,238,1) 56%, rgba(218,213,207,1) 100%)
+        width: 313px
+        margin-left: 8px
+        padding: 20px 20px 40px
+        align-self: stretch
+
+        p
+            color: #0000007a
+            font-size: 16px
+            font-style: normal
+            font-weight: 600
+            line-height: 138%
+            margin-top: 13px
+
+            span 
+                color: #000
+
+    .description-md 
+        display: none
+
+.pay-share-shedule
+    @include flex
+
+    overflow: visible
+    margin-top: 64px
+    position: relative
+
+    .shedule__left
+        min-width: 186px
+        width: 186px
+
+        .shedule__header
+            color: #000
+            font-size: 20px
+            font-style: normal
+            font-weight: 600
+            line-height: 130%
+            margin-top: 15px
+
+    .shedule__wrapper
+        overflow-x: scroll
+        background: #FAF5EE
+        border-radius: 16px
+        margin-left: 18px
+        scroll-behavior: smooth
+
+        @media (min-width: $tablet) 
+            scrollbar-width: none
+
+            &::-webkit-scrollbar
+                display: none
+
+    .shedule__items 
+        @include flex
+
+        padding: 40px 27px 78px
+        width: max-content
+
+        .shedule__item
+            min-width: 136px
+            margin: 0 5px
+
+            .separator
+                border-radius: 8px
+                height: 4px
+                background: #827F7C
+                background: linear-gradient(90deg, #827F7C 0%, #e5e0d9 100%)
+                margin-top: 8px
+
+            .item__header, .item__date, .item__year 
+                max-width: 80px
+                color: #0000007a
+                font-size: 16px
+                font-style: normal
+                font-weight: 600
+                line-height: 130%
+
+            .item__date, .item__year 
+                white-space: pre
+
+            .item__amount
+                color: #000
+                font-size: 24px
+                font-style: normal
+                font-weight: 700
+                line-height: 130%
+                margin-top: 16px
+
+            &.item-current
+
+                .item__header, .item__date, .item__year 
+                    color: #000
+
+                .separator
+                    border-radius: 8px
+                    height: 4px
+                    background: #FF5A00
+                    margin-top: 8px
+
+        &.six-month
+            width: 100%
+
+    .shedule__arrows
+        position: absolute
+        left: 1080px
+        bottom: 16px
+        display: flex
+        gap: 16px
+
+        &.hide
+            display: none
+
+        .shedule__arrow-left, .shedule__arrow-right 
+            background-color: #FF9F00
+            width: 32px
+            height: 32px
+            border-radius: 32px
+            bottom: 15px
+            cursor: pointer
+            transition: background-color 0.3s ease
+            
+            @include flex-center
+
+            &:hover
+                background-color: #FFAB1F
+
+.pay-share-submit 
+    margin-top: 24px
+    margin-left: 344px !important
+
+    .submit__checkbox
+        @include flex
+
+        label
+            display: block
+            width: 16px
+            height: 16px
+            border: 2px solid #000
+            border-radius: 4px
+            margin-right: 8px
+            transition: border-color 0.3s ease
+            cursor: pointer
+
+            @include flex-center
+
+            svg
+                display: none
+
+            &:hover
+                border-color: #FF5A00
+
+        input
+            display: none
+
+            &:checked
+
+                & + label
+                    border-color: #FF5A00
+                    background-color: #FF5A00
+                    
+                    svg 
+                        display: block
+        p
+            color: #000
+            font-size: 11px
+            font-style: normal
+            font-weight: 500
+            line-height: 120%
+            letter-spacing: -0.11px
+            margin-top: 3px
+
+            a
+                color: #000
+                text-decoration: underline
+                transition: color 0.3s ease
+
+                &:hover
+                    color: #827F7C
+    
+.submit__button
+    display: inline-block
+    text-align: center
+    padding: 12px 56px
+    border-radius: 8px
+    background-color: #FF5A00
+    color: #FFF
+    text-align: right
+    font-size: 18px
+    font-style: normal
+    font-weight: 600
+    line-height: 24px
+    margin-top: 8px
+    text-decoration: none
+    border: none
+    outline: none
+    cursor: pointer
+    transition: background-color 0.3s ease
+
+    &:hover
+        background-color: #FF6A01            
+
+    &:disabled
+        background-color: #C2C2C2
+        cursor: default
+
+@media (max-width: $tablet)
+    .loan-container
+        width: 100%
+        padding: 16px 44px 80px 44px
+        margin: 0
+
+        & > div
+            margin-left: 0
+            padding-left: 0
+
+    .button-back 
+        width: 768px
+        padding-left: 44px
+
+        a
+            font-size: 12px
+            font-weight: 500
+
+            svg
+                width: 5px
+                height: 7px
+                margin-right: 1px
+
+    .pay-share-header 
+        width: 768px
+        padding-left: 44px
+        margin-top: 30px
+
+        .tariff-description
+            font-size: 16px
+
+        .header
+            font-size: 24px
+
+    .pay-share-description
+        display: block
+        margin-top: 32px
+        width: 768px
+        padding-left: 44px
+
+        .description__left
+            width: 100%
+
+            .description__header
+                font-size: 16px
+
+            .description__subheader
+                display: none
+
+        .description__items
+            margin-top: 7px
+
+        .description__item
+            width: 220px
+            margin: 0 4px
+            padding: 16px 16px 27px
+            border-radius: 12px
+
+            &:first-child
+                margin-left: 0
+
+            &:last-child
+                margin-right: 0 
+
+            img 
+                width: 24px
+                height: 24px
+
+            p
+                font-size: 12px
+                margin-top: 6px
+        
+        .description-md
+            display: inline-block
+            margin-top: 11px
+            width: 250px
+
+            .description__subheader
+                color: #000
+                font-size: 9px
+                font-style: normal
+                font-weight: 500
+                line-height: 150%
+                letter-spacing: -0.09px
+
+                a
+                    color: #000
+                    transition: color 0.3s ease
+
+                    &:hover
+                        color: #827F7C
+
+    .pay-share-shedule
+        display: block
+        margin-top: 33px
+
+        .shedule__left
+            width: 768px
+            min-width: unset
+
+            .shedule__header
+                font-size: 16px
+
+        .shedule__wrapper
+            margin-top: 7px
+            margin-left: 0
+            overflow: scroll
+
+            &.no-scroll
+                background: none
+
+                .shedule__items
+                    background: #FAF5EE
+
+            .shedule__items
+                margin-left: 0
+                border-radius: 12px
+                padding: 32px 24px 40px 24px
+                margin-right: 16px
+                overflow: scroll
+
+                &.six-month
+                    width: min-content
+
+                .shedule__item
+                    margin: 0 10px
+                    min-width: 88px
+
+                    .item__header, .item__date, .item__year
+                        max-width: 80px
+                        font-size: 12px
+
+                    .item__amount
+                        font-size: 20px
+                        margin-top: 17px
+
+        .shedule-arrows
+            display: none !important
+
+    .pay-share-submit
+        width: 768px
+        padding-left: 44px
+        margin-left: 0 !important
+        margin-top: 15px
+
+    .submit__button
+        font-size: 14px
+        padding: 7px 40px
+        margin-top: 9px
+
+@media (max-width: $mobile)
+    .loan-container
+        width: 100%
+        padding: 16px 10px 80px 10px
+
+    .button-back 
+        width: 100%
+        padding-left: 10px
+
+    .pay-share-header 
+        width: 100%
+        padding-left: 10px
+        margin-top: 24px
+
+        .tariff-description
+            font-size: 12px
+
+            p
+                margin-bottom: 0
+
+        .header
+            font-size: 18px
+            margin-top: 10px
+
+    .pay-share-description
+        display: block
+        margin-top: 39px
+        width: 100%
+        padding-left: 0
+
+        .description__left
+            padding-left: 0
+
+        .description__item-wrapper
+            width: 100%
+            overflow: scroll
+
+        .description__items
+            padding-left: 0px
+            width: min-content
+            margin-top: 9px
+
+            .description__item
+                width: 203px
+                padding: 16px 16px 51px
+
+                &:last-child
+                    margin-right: 4px
+
+                p
+                    font-size: 14px
+        
+        .description-md
+            margin-top: 10px
+            padding-left: 0
+
+            .description__subheader
+                font-size: 11px
+                font-weight: 500
+
+    .pay-share-shedule
+        margin-top: 50px
+
+        .shedule__left
+            width: 100%
+            padding-left: 0
+
+        .shedule-arrows
+            display: none !important
+
+        .shedule__wrapper
+            .shedule__items
+                padding: 32px 24px 40px
+
+                .shedule__item
+                    width: 120px
+                    margin: 0 5px
+
+                    .item__header, .item__date, .item__year
+                        font-size: 14px
+
+                    .item__amount
+                        font-size: 24px
+                        margin-top: 17px
+    
+    .pay-share-submit
+        width: 100%
+        padding-left: 10px
+        margin-top: 22px
+
+    .submit__button
+        width: 300px
+        margin: 9px auto 0
+        text-align: center
+        font-size: 18px
+        padding: 12px 0
+

@@ -1,0 +1,1084 @@
+$tablet: 1299px
+$mobile: 568px
+
+@mixin flex()
+    display: flex
+    justify-content: flex-start
+    align-items: flex-start
+
+@mixin flex-wrap()
+    display: flex
+    justify-content: flex-start
+    align-items: flex-start
+    flex-wrap: wrap
+
+@mixin flex-column()
+    display: flex
+    flex-direction: column
+    justify-content: flex-start
+    align-items: flex-start
+
+@mixin flex-column-reverse()
+    display: flex
+    flex-direction: column-reverse
+    justify-content: flex-start
+    align-items: flex-start
+
+.hide-desktop
+    @media (min-width: $tablet)
+        display: none !important
+
+.hide-tablet
+    @media (min-width: $mobile) and (max-width: $tablet)
+        display: none !important
+
+.hide-mobile
+    @media (max-width: $mobile)
+        display: none !important
+
+*
+    font-family: Montserrat
+    -webkit-font-smoothing: antialiased
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    image-rendering: -webkit-optimize-contrast !important
+
+.careerum-pay
+    background-color: #ffffff
+    width: 100%
+    overflow: hidden
+
+.container
+    width: 1160px
+    margin: 54px auto 50px
+
+.order-loan-payment-component .container
+    display: flex
+    align-items: center
+    flex-direction: column
+
+.container-2col
+    display: flex
+    justify-content: flex-start
+
+.col-left
+    display: flex
+    flex-direction: column
+    width: 450px
+
+.col-right
+    width: 578px
+    margin-left: 76px
+    margin-top: -54px
+
+.page-header-text
+    font-weight: 700
+    font-size: 40px
+    line-height: 40px
+
+.order-header
+    margin-top: 48px
+
+    .order-header__text
+        font-weight: 600
+        font-size: 24px
+        line-height: 130%
+        margin-top: 16px
+
+.page-subheader-text
+    font-weight: 500
+    font-size: 16px
+    line-height: 100%
+    color: #827F7C
+
+.order-customer
+    margin-top: 32px
+    margin-bottom: 16px
+
+    .order-customer__name
+        font-weight: 600
+        font-size: 24px
+        line-height: 100%
+        margin-top: 16px
+
+    .order-customer__data
+        @include flex
+        margin-top: 4px
+
+        .order-customer__email
+            font-weight: 500
+            font-size: 16px
+            line-height: 170%
+            padding-right: 5px
+
+            &::after
+                content: url('../../assets/svg/separator.svg')
+                width: 1px
+                height: 18px
+                position: relative
+                top: 5px
+                left: 5px
+                margin-left: 7px
+
+        .order-customer__tel
+            font-weight: 500
+            font-size: 16px
+            line-height: 170%
+            margin-left: 12px
+
+.order-tips
+    display: flex
+    flex-wrap: wrap
+    margin-top: 24px
+
+    .order-tip
+        width: 190px
+        margin: 0 32px 16px 0
+
+        &:nth-child(even)
+            width: 160px
+
+        .order-tip__icon
+            margin-bottom: 4px
+
+        .order-tip__text
+            font-size: 14px
+            font-weight: 500
+            line-height: 19px
+
+.order-address
+    margin-top: 39px
+
+    .order-form
+        @include flex-wrap
+        margin-top: 17px
+
+.form-field
+    position: relative
+
+    .form-field__input
+        background: transparent
+        border-radius: 8px
+        outline: none
+        border: 2px solid #C2C2C2
+        font-weight: 400
+        font-size: 16px
+        line-height: 110%
+        color: #000000
+        padding: 10px 12px
+        width: 100%
+        transition: all 0.2s ease
+        margin-right: 4px
+        margin-bottom: 8px
+
+        &::placeholder
+            font-size: 16px
+            font-weight: 400
+            line-height: 140%
+            opacity: 1
+            color: #C2C2C2
+
+        &[name="country"]
+            width: 218px
+
+        &[name="zip"]
+            width: 144px
+
+        &[name="address1"],
+        &[name="address2"]
+            width: 366px
+
+        &[name="promocode"]
+            width: 200px
+
+        &:-webkit-autofill,
+        &:-webkit-autofill:focus
+            background-color: red !important
+            -webkit-box-shadow: 0 0 0 30px #ffffff inset !important
+            box-shadow: 0 0 0 30px #ffffff inset !important
+            -webkit-text-fill-color: #000000 !important
+
+        &:-webkit-autofill:hover
+            -webkit-text-fill-color: #000000 !important
+
+        &:hover
+            border-color: #827F7C
+            color: #000000
+
+        &:hover + .form-field__placeholder
+            position: absolute
+            top: 10px
+            left: 8px
+            color: #000000
+            pointer-events: none
+
+        &:focus
+            border-color: #827F7C
+            color: #000000
+
+        &:focus + .form-field__placeholder
+            top: -7px
+            font-size: 12px
+            line-height: 140%
+            color: #FF5A00
+            left: 9px
+
+        &:not(:placeholder-shown) + .form-field__placeholder
+            top: -7px
+            font-size: 12px
+            line-height: 140%
+            left: 9px
+
+        &:not(:placeholder-shown):hover + .form-field__placeholder
+            color: #000000
+
+        &:focus:hover + .form-field__placeholder
+            color: #FF5A00
+
+        &.error
+            border-color: #DB0000
+            color: #DB0000
+
+    .form-field__placeholder
+        position: absolute
+        top: 10px
+        left: 8px
+        font-weight: 400
+        font-size: 16px
+        line-height: 170%
+        color: rgba(0, 0, 0, 0.48)
+        transition: all 0.2s ease
+        background: #ffffff
+        padding: 0 4px
+        user-select: none
+
+.button-submit
+    border: none
+    outline: none
+    background-color: #FF5A00
+    color: #ffffff
+    font-weight: 500
+    font-size: 16px
+    line-height: 18px
+    text-align: center
+    border-radius: 8px
+    padding: 12px 24px
+    cursor: pointer
+    transition: all 0.2s ease
+    display: inline-block
+    text-decoration: none
+
+    &:hover
+        background-color: #FF6A01
+
+    &:disabled,
+    &[disabled]
+        cursor: default
+        background-color: #C2C2C2
+
+    &:disabled:hover,
+    &[disabled]:hover
+        cursor: default
+        background-color: #C2C2C2
+
+.order-wrapper
+    background: #FFFFFF
+    border: 3px solid #C2C2C2
+    border-radius: 16px
+    padding: 32px 48px 48px 48px
+
+.order-result
+    margin-top: 0
+
+    .order-result__header
+        font-weight: 600
+        font-size: 20px
+        line-height: 100%
+
+    .order-result__loan
+        margin-bottom: 30px
+
+        .order-result__loan-header
+            font-size: 24px
+            font-weight: 700
+            line-height: 100%
+
+        .order-result__loan-description
+            margin-top: 8px
+            font-size: 16px
+            font-weight: 500
+            line-height: 100%
+
+    .order-result__total
+        @include flex-wrap
+        align-items: flex-end
+        margin-top: 16px
+
+        .order-result__amount
+            font-weight: 600
+            font-size: 32px
+            line-height: 100%
+            margin-right: 8px
+
+        .order-result__old
+            font-weight: 500
+            font-size: 20px
+            line-height: 100%
+            text-decoration-line: line-through
+            color: #C2C2C2
+
+        .order-result__promo-notification
+            width: 100%
+            font-weight: 500
+            font-size: 14px
+            line-height: 18px
+            color: #FF9F00
+            margin-top: 5px
+
+    .order-result__promo
+        margin-top: 10px
+
+        .promo-form
+            @include flex-wrap
+
+            .form-field__input
+
+                & + .form-field__placeholder,
+                &:hover + .form-field__placeholder
+                    top: 7px
+
+                &:focus + .form-field__placeholder,
+                &:not(:placeholder-shown) + .form-field__placeholder
+                    top: -7px
+
+            .button-submit
+                padding: 12px 24px
+
+.form-alert
+    font-weight: 500
+    font-size: 14px
+    line-height: 18px
+    color: #FF5A00
+
+.order-method
+    &.full-pay
+        margin-top: 40px
+    &.part-pay
+        margin-top: 32px
+
+    .order-method__text
+        font-weight: 600
+        font-size: 16px
+        line-height: 110%
+        color: #000
+
+    .pay-method-form
+        margin-top: 8px
+
+        .pay-method-form__input
+            display: flex
+            justify-content: flex-start
+            align-items: center
+            cursor: pointer
+            position: relative
+            padding: 0 24px 0 15px
+            height: 60px
+            margin-bottom: 8px
+            border: 1px solid #c2c2c2
+            border-radius: 8px
+            transition: all .2s linear
+
+            &::before
+                content: ''
+                background: url('../../assets/svg/radio.svg') no-repeat center
+                width: 20px
+                height: 20px
+                margin-right: 8px
+                display: block
+                transition: background 0.2s ease
+
+            &:hover
+                border-color: #827F7C
+
+            &:hover::before
+                background: url('../../assets/svg/radio-hover.svg') no-repeat center
+
+            input
+                display: none
+
+            &.radio-checked
+                cursor: default
+                border-color: #C2C2C2
+
+                &::before
+                    background: url('../../assets/svg/radio-checked.svg') no-repeat center
+
+            &.method-ru
+                padding-left: 0
+                margin-bottom: 72px
+
+                &::before
+                    content: none !important
+
+            &.discount
+                &::after
+                    content: ''
+                    position: absolute
+                    top: -10px
+                    right: -10px
+                    width: 26px
+                    height: 26px
+                    background: url('../../assets/svg/discount.svg') no-repeat center
+
+            .pay-method-form__input__label
+                display: flex
+                justify-content: space-between
+                align-items: center
+                width: 100%
+
+                img:not(.no-border)
+                    width: 58.1px
+                    height: 40px
+                    border: 1px solid #c4c4c4
+                    border-radius: 6px
+                    padding: 6px
+
+
+            .pay-method-form__text
+                font-size: 13px
+                font-weight: 600
+                line-height: 110%
+                color: #000
+
+            .pay-method-form__logos
+                display: flex
+                gap: 8px
+
+            .pay-method-form__tinkoff-loan
+                display: flex
+                justify-content: space-between
+                align-items: center
+                flex-grow: 1
+                overflow: hidden
+                text-overflow: ellipsis
+                white-space: nowrap
+
+                .pay-method-form__tinkoff-loan__payment
+                    font-size: 13px
+
+                    &::before
+                        content: ' — '
+
+                .pay-method-form__tinkoff-loan__logo
+                    width: 124px
+                    height: 40px
+                    background-image: url("../../assets/svg/logos/tinkoff-loan.svg")
+
+.pay-method-form__submit
+    display: flex
+    align-items: center
+    justify-content: space-between
+    margin-top: 40px
+
+    .button-submit
+        padding: 12px 56px
+        font-weight: 600
+        font-size: 18px
+        line-height: 24px
+    
+    & > div:nth-child(2)
+        line-height: 0
+
+.order-timer
+    margin-top: 16px
+
+    .order-timer__description
+        width: 388px
+        font-weight: 400
+        font-size: 13px
+        line-height: 130%
+        letter-spacing: 0.13px
+        color: rgba(0, 0, 0, 0.48)
+
+    .order-timer__counter
+        margin-top: 10px
+
+        .ant-statistic
+            line-height: 100%
+
+            .ant-statistic-content-value
+                line-height: 90%
+                font-size: 30px
+                font-weight: 500
+
+.order-description
+    font-weight: 400
+    font-size: 13px
+    line-height: 160%
+    letter-spacing: 0.13px
+    color: rgba(0, 0, 0, 0.48)
+    margin-top: auto
+    width: 456px
+
+    a
+        color: inherit
+        text-decoration: underline
+
+.help-text
+    font-weight: 400
+    font-size: 13px
+    line-height: 160%
+    letter-spacing: 0.13px
+    color: rgba(0, 0, 0, 0.48)
+    margin-top: 16px
+    width: 473px
+
+    a
+        color: inherit
+        text-decoration: underline
+
+@media (max-width: $tablet)
+    .container
+        width: auto
+        margin-top: 0
+        margin-bottom: 0
+        padding: 40px 44px 64px 44px
+
+    .container-2col
+        display: block
+        margin-top: 32px
+
+    .col-left
+        width: 100%
+        flex-direction: row
+        flex-wrap: wrap
+
+        .order-info
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            width: 280px
+            margin-right: 32px
+
+    .col-right
+        width: 578px
+        margin-top: 40px
+        margin-left: 0
+
+    .page-header-text
+        font-size: 32px
+        line-height: 32px
+
+    .order-header
+        margin-top: 0
+        width: 279px
+
+        .order-header__text
+            margin-top: 10px
+            font-size: 18px
+            line-height: 130%
+
+    .page-subheader-text
+        font-size: 14px
+
+    .order-customer
+        margin-top: 0
+        margin-bottom: 0
+
+        .order-customer__name
+            margin-top: 10px
+            font-size: 18px
+            line-height: 120%
+
+        .order-customer__data
+            display: block
+            margin-top: 3px
+
+            .order-customer__email
+                font-weight: 500
+                font-size: 14px
+                line-height: 150%
+                padding-right: 5px
+
+                &::after
+                    content: none
+
+            .order-customer__tel
+                font-weight: 500
+                font-size: 14px
+                line-height: 150%
+                margin-left: 0px
+
+    .order-address
+        margin-top: 32px
+
+        .page-subheader-text
+            letter-spacing: -0.02em
+
+        .order-form
+            display: block
+            margin-top: 17px
+
+    .form-field
+        position: relative
+        margin-bottom: 8px
+
+        .form-field__input
+            padding: 4px 10px 6px
+            width: 100%
+            margin-right: 0
+            margin-bottom: 0
+
+            &[name="country"],
+            &[name="zip"],
+            &[name="address1"],
+            &[name="address2"]
+                width: 100%
+
+            &[name="promocode"]
+                width: 180px
+
+            .form-field__placeholder
+                font-size: 14px
+
+            &:hover + .form-field__placeholder
+                top: 7px
+
+            &:focus + .form-field__placeholder
+                top: -6px
+                line-height: 100%
+
+            &:not(:placeholder-shown) + .form-field__placeholder
+                top: -6px
+                line-height: 100%
+
+        .form-field__placeholder
+            top: 7px
+
+    .order-method
+        .pay-method-form
+            .pay-method-form__input
+                padding: 10px 24px 10px 16px
+                margin-bottom: 10px
+
+                .pay-method-form__text
+                    font-size: 13px
+                    line-height: 110%
+
+                .pay-method-form__tinkoff-loan
+
+                    .pay-method-form__tinkoff-loan__payment
+                        font-size: 13px
+
+    .button-submit
+        font-weight: 500
+        font-size: 14px
+        line-height: 24px
+        border-radius: 8px
+        padding: 12px 20px
+
+    .order-wrapper
+        padding: 32px 48px 48px 48px
+
+    .order-result
+
+        .order-result__header
+            font-weight: 600
+            font-size: 20px
+            line-height: 100%
+
+        .order-result__total
+
+            .order-result__amount
+                font-weight: 600
+                font-size: 32px
+                line-height: 100%
+                margin-right: 10px
+
+            .order-result__old
+                font-weight: 500
+                font-size: 20px
+                line-height: 100%
+                text-decoration-line: line-through
+                color: #C2C2C2
+
+            .order-result__promo-notification
+                width: 100%
+                font-weight: 500
+                font-size: 14px
+                line-height: 18px
+                color: #FF9F00
+                margin-top: 5px
+
+        .order-result__promo
+            margin-top: 10px
+
+            .promo-form
+
+                .form-field
+                    margin-bottom: 0
+
+                    .form-field__input
+                        width: 200px
+                        height: 42px
+                        padding: 10px 12px
+
+                        & + .form-field__placeholder,
+                        &:hover + .form-field__placeholder
+                            top: 6px
+
+                        &:focus + .form-field__placeholder,
+                        &:not(:placeholder-shown) + .form-field__placeholder
+                            top: -6px
+
+                .order-result__promo__submit
+                    margin-left: 4px
+
+                .button-submit
+                    padding: 8px 24px
+
+    .form-alert
+        font-weight: 500
+        font-size: 16px
+        line-height: 20px
+        margin-top: 7px
+
+    .order-method
+        margin-top: 33px
+
+        .page-subheader-text
+            font-size: 16px
+
+        .pay-method-form
+            margin-top: 11px
+
+        .pay-method-form__submit
+            margin-top: 48px
+
+            .button-submit
+                padding: 8px 24px
+
+    .order-timer
+        margin-top: 16px
+
+        .order-timer__counter
+
+            .order-timer__counter__elem
+                font-size: 30px
+                font-weight: 500
+                line-height: 90%
+
+    .order-description
+        width: 566px
+        margin-top: 24px
+        margin-left: 0
+        font-size: 10px
+
+    .order-tips
+        .order-tip
+            width: 100%
+            margin-right: 0
+
+            &:nth-child(even)
+                width: 100%
+
+    .help-text
+        font-weight: 500
+        font-size: 10px
+        line-height: 145%
+        margin-top: 24px
+        width: 100%
+
+@media (max-width: $mobile)
+    .container
+        width: 100%
+        margin: 35px 0 80px 0
+        padding: 0 16px 0 10px
+
+    .container-2col
+        display: block
+
+    .col-left
+        width: 100%
+        margin-top: 33px
+
+        .order-info
+            display: block
+
+    .col-right
+        width: 100%
+        margin-left: 0px
+        margin-top: 48px
+
+    .page-header-text
+        font-size: 24px
+        letter-spacing: unset
+
+    .order-header
+        width: auto
+        margin-top: 0px
+
+        .order-header__text
+            font-size: 16px
+            line-height: 130%
+
+    .page-subheader-text
+        font-size: 12px
+
+    .order-customer
+        margin-top: 32px
+
+        .order-customer__name
+            font-size: 16px
+            font-weight: 600
+            line-height: 130%
+
+        .order-customer__data
+            display: block
+            margin-top: 4px
+
+            .order-customer__email
+                font-size: 16px
+                font-weight: 600
+                line-height: 130%
+
+                &::after
+                    content: none
+
+            .order-customer__tel
+                font-size: 16px
+                font-weight: 600
+                line-height: 130%
+                margin-top: 4px
+                margin-left: 0
+
+    .order-tips
+        .order-tip
+            display: flex
+            align-items: flex-start
+            width: auto !important
+            margin: 0 0 24px -3px
+
+            .order-tip__icon
+                margin-right: 8px
+
+    .order-address
+        margin-top: 32px
+
+        .page-subheader-text
+            letter-spacing: -0.02em
+
+        .order-form
+            display: block
+            margin-top: 19px
+
+    .form-field
+        position: relative
+        margin-bottom: 8px
+        width: 100%
+
+        .form-field__input
+            padding: 8px 10px 8px
+
+            &[name="promocode"]
+                width: 100%
+
+            &:hover + .form-field__placeholder
+                top: 10px
+
+            &:focus:hover + .form-field__placeholder,
+            &:not(:placeholder-shown) + .form-field__placeholder
+                top: -6px
+
+        .form-field__placeholder
+            top: 10px
+
+    .order-method
+        .pay-method-form
+            .pay-method-form__input
+                padding: 0 7px
+                height: 48px
+                margin-bottom: 8px
+
+                .pay-method-form__tinkoff-loan
+                    display: flex
+                    flex-direction: column
+                    align-items: flex-start
+
+                    .pay-method-form__tinkoff-loan__text
+                        margin-bottom: 10px
+                        line-height: 100%
+
+                        .pay-method-form__tinkoff-loan__payment
+
+                            &::before
+                                content: '. '
+                                font-weight: 600
+
+                        .pay-method-form__tinkoff-loan__logo
+
+    .button-submit
+        font-weight: 500
+        font-size: 18px
+        line-height: 24px
+        border-radius: 8px
+        padding: 12px 0
+        width: 100%
+        display: block
+
+    .order-wrapper
+        width: 100%
+        border: 0
+        padding: 0
+        margin: 0
+
+    .order-result
+
+        .order-result__header
+            font-weight: 700
+            font-size: 16px
+            line-height: 100%
+
+        .order-result__loan
+            margin-bottom: 16px
+
+            .order-result__loan-header
+                width: 220px
+                line-height: 130%
+                
+            .order-result__loan-description
+                width: 240px
+                margin-top: 10px
+                font-size: 14px
+                line-height: 130%
+
+        .order-result__total
+            margin-top: 8px
+
+            .order-result__amount
+                font-weight: 700
+                font-size: 24px
+                line-height: 100%
+                margin-right: 10px
+
+            .order-result__old
+                font-weight: 500
+                font-size: 16px
+                line-height: 100%
+
+            .order-result__promo-notification
+                width: 100%
+                font-weight: 500
+                font-size: 16px
+                line-height: 20px
+                margin-top: 8px
+
+        .order-result__promo
+            margin-top: 16px
+
+            .promo-form
+                @include flex-column
+
+                .form-field
+                    margin-bottom: 0
+                    .form-field__input 
+                        width: 100%
+                        height: 48px
+
+                .order-result__promo__submit
+                    width: 100%
+                    margin-top: 8px
+                    margin-left: 0
+                    order: 1
+
+                .button-submit
+                    padding: 12px 0px
+
+    .form-alert
+        font-weight: 500
+        font-size: 16px
+        line-height: 20px
+
+    .order-method
+        margin-top: 17px
+
+        .page-subheader-text
+            font-size: 16px
+
+        .pay-method-form
+            margin-top: 11px
+
+            .pay-method-form__input
+                height: auto
+                padding: 16px
+                margin-bottom: 8px
+
+                &::before
+                    width: 14px
+                    height: 14px
+                    align-self: flex-start
+                    margin-right: 4px
+                    background-size: contain
+                
+                &:hover::before, &.radio-checked::before
+                    background-size: contain
+
+                &.discount
+                    &::after
+                        top: -8px
+                        right: -7px
+
+                .pay-method-form__input__label
+                    flex-direction: column
+                    justify-content: space-between
+                    align-items: flex-start
+
+                    .pay-method-form__text
+                        margin-bottom: 10px
+                        font-size: 13px
+                        line-height: 105%
+
+    .pay-method-form__submit
+        flex-direction: column
+        align-items: initial
+        gap: 8px
+        margin-top: 32px
+
+        .button-submit
+            padding: 12px 0
+
+    .order-timer
+        display: flex
+        flex-direction: column
+        align-items: center
+        margin-top: 16px
+
+        .order-timer__description
+            width: 290px
+            font-size: 11px
+            font-weight: 400
+            line-height: 130%
+            text-align: center
+
+        .order-timer__counter
+
+            .order-timer__counter__elem
+                font-size: 30px
+
+    .order-description
+        width: 100%
+        font-size: 11px
+        line-height: 145%
+        font-weight: 400
+        margin-top: 40px
+        margin-left: 0
+        text-align: center
+
+    .help-text
+        width: 260px
+        font-size: 11px
+        line-height: 145%
+        font-weight: 400
+        margin: 16px auto 0 auto
+        text-align: center

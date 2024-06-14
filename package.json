@@ -1,0 +1,80 @@
+{
+  "name": "billing",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@paypal/paypal-js": "^4.0.1",
+    "@paypal/react-paypal-js": "^8.1.4",
+    "@stripe/react-stripe-js": "2.1.2",
+    "@stripe/stripe-js": "^1.54.0",
+    "antd": "^5.15.0",
+    "axios": "^0.19.2",
+    "braintree-web": "^3.78.3",
+    "i18next": "^23.10.0",
+    "i18next-browser-languagedetector": "^7.2.0",
+    "i18next-xhr-backend": "^3.2.2",
+    "moment": "^2.30.0",
+    "ramda": "^0.29.0",
+    "react": "^18.2.0",
+    "react-app-polyfill": "^3.0.0",
+    "react-app-rewire-alias": "^1.1.7",
+    "react-dom": "^18.2.0",
+    "react-i18next": "^14.1.0",
+    "react-router": "^5.3.0",
+    "react-router-dom": "^5.3.0",
+    "react-scripts": "^4.0.1",
+    "styled-components": "^6.1.0",
+    "tserialize": "^1.6.0"
+  },
+  "scripts": {
+    "build": "cross-env GENERATE_SOURCEMAP=false react-app-rewired build",
+    "deploy": "set PORT=3002 && pm2 start pm2.json",
+    "start:dev": "react-app-rewired start",
+    "test": "react-app-rewired test",
+    "eject": "react-app-rewired eject",
+    "start:pm2:dev": "pm2 serve build 3101 --spa --name \"deva-crm-dev\"",
+    "start:pm2:prod": "pm2 serve build 3002 --spa --name \"deva-crm\"",
+    "restart:pm2:dev": "npm run stop:pm2:dev && npm run start:pm2:dev",
+    "restart:pm2:prod": "npm run stop:pm2:prod && npm run start:pm2:prod",
+    "stop:pm2:dev": "pm2 delete deva-crm-dev",
+    "stop:pm2:prod": "pm2 delete deva-crm"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.10.5",
+    "@babel/plugin-proposal-private-property-in-object": "^7.10.5",
+    "@types/axios": "^0.14.0",
+    "@types/braintree-web": "^3.75.3",
+    "@types/ramda": "^0.29.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@types/react-router-dom": "^5.3.0",
+    "@types/styled-components": "^5.1.0",
+    "cross-env": "^7.0.3",
+    "customize-cra": "^1.0.0",
+    "node-sass": "^6.0.1",
+    "react-app-env": "^1.2.3",
+    "react-app-rewired": "^2.1.6",
+    "react-error-overlay": "6.0.9",
+    "typescript": "^4.7.4"
+  },
+  "resolutions": {
+    "//": "See https://github.com/facebook/create-react-app/issues/11773",
+    "react-error-overlay": "6.0.9"
+  },
+  "babel": {
+    "plugins": [
+      "@babel/plugin-proposal-decorators"
+    ],
+    "presets": [
+      "react-app"
+    ]
+  }
+}

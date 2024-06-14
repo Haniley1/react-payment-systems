@@ -1,0 +1,53 @@
+body {
+  margin: 0;
+  overflow-x: hidden;
+  min-width: 320px;
+
+  font-family: -apple-system, BlinkMacSystemFont, 'Montserrat', 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html.devas-platform-app-dark body {
+  background-color: #001529 !important;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #90A4AE #CFD8DC;
+}
+
+*::-webkit-scrollbar-track
+{
+  background: #f0f2f5;
+}
+
+html.devas-platform-app-dark *::-webkit-scrollbar-track
+{
+  background: #001529;
+}
+
+*::-webkit-scrollbar
+{
+  width: 5px;
+  height: 5px;
+}
+
+*::-webkit-scrollbar-thumb
+{
+	background-color: #c6c8ca;
+  border-radius: 6px;
+}
+
+@media (max-width: 320px) {
+  body {
+    overflow-x: scroll;
+  }
+}
